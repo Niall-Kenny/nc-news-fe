@@ -1,0 +1,60 @@
+.article-item {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fcfcfc;
+    margin-left: 5px;
+
+
+
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .article-card-header {
+        height: 300px;
+        width: 100%;
+
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 5px;
+
+    }
+
+    .article-card-body {
+        width: 100%;
+
+        .article-date {
+            font-size: 11px;
+            font-weight: 600;
+            color: grey;
+        }
+
+
+    }
+
+    .article-card-footer {
+        border: 1px solid #E6EAEA;
+
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 400;
+        width: 100%;
+        margin-bottom: 15px;
+
+
+        .author {
+            width: 80%;
+
+        }
+
+        .votes {
+            width: 20%
+        }
+    }
+
+}

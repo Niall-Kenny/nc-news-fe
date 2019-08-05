@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ArticlePreview from "../../Article-components/ArticlePreview-component";
 
+import "./feedlist.styles.scss";
+import * as api from "../../../api";
 class FeedList extends Component {
   state = {
     articles: [
@@ -33,13 +35,20 @@ class FeedList extends Component {
     const { articles } = this.state;
     return (
       <div className="feed-list">
-        <ul>
+        <div className="feed-preview">
           {articles.map(({ article_id, ...otherArticleProps }) => {
             return <ArticlePreview key={article_id} {...otherArticleProps} />;
           })}
-        </ul>
+        </div>
       </div>
     );
+  }
+
+  componentDidMount() {
+    api.fetchArticles().then(articles => {
+      console.log(articles);
+      this.setState({ articles });
+    });
   }
 }
 
