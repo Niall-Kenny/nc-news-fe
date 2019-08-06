@@ -17,5 +17,22 @@ export const fetchArticles = sort_by => {
 };
 
 export const fetchArticle = article_id => {
-  return request.get(`articles/${article_id}`).then(res => res.data.article);
+  return request.get(`/articles/${article_id}`).then(res => res.data.article);
+};
+
+export const fetchComments = article_id => {
+  return request.get(`/articles/${article_id}/comments`).then(res => {
+    return res.data.comments;
+  });
+};
+
+export const postComment = (article_id, username, body) => {
+  return request
+    .post(`/articles/${article_id}/comments`, {
+      username,
+      body
+    })
+    .then(res => {
+      return res.data.comment;
+    });
 };

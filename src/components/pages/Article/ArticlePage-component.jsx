@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../../api";
+import CommentList from "./CommentList-component";
 
 class ArticlePage extends Component {
   state = {
@@ -8,6 +9,7 @@ class ArticlePage extends Component {
   };
   render() {
     const { isLoading, article } = this.state;
+
     if (isLoading) {
       return <p>loading....</p>;
     }
@@ -16,7 +18,11 @@ class ArticlePage extends Component {
         <h2>{article.title}</h2>
         <p>{article.body}</p>
         <p>Published By: {article.author}</p>
-        <button>comments</button>
+
+        <button>UP vote</button>
+        <button>DOWN vote</button>
+        <span>Votes: {article.votes}</span>
+        <CommentList {...article} />
       </div>
     );
   }
@@ -26,6 +32,8 @@ class ArticlePage extends Component {
       .fetchArticle(id)
       .then(article => this.setState({ article, isLoading: false }));
   }
+
+  displayComments = () => {};
 }
 
 export default ArticlePage;
