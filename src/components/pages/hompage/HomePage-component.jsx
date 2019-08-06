@@ -72,7 +72,9 @@ class HomePage extends Component {
     return (
       <div className="home-page">
         {topics.map(({ slug, description }) => {
-          return <ContentPreview topic={slug} description={description} />;
+          return (
+            <ContentPreview key={slug} topic={slug} description={description} />
+          );
         })}
       </div>
     );

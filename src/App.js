@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import HomePage from "./components/pages/hompage/HomePage-component";
 import FeedPage from "./components/pages/Feed/FeedPage";
+import ArticlePage from "./components/pages/Article/ArticlePage-component";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <HomePage path="/" />
         <FeedPage path="/feed" />
+        <ArticlePage path="/feed/:id" />
       </Router>
     </div>
   );
