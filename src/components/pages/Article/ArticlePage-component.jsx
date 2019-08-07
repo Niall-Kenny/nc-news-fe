@@ -22,7 +22,7 @@ class ArticlePage extends Component {
         <button>UP vote</button>
         <button>DOWN vote</button>
         <span>Votes: {article.votes}</span>
-        <CommentList {...article} />
+        <CommentList {...article} username={this.props.username} />
       </div>
     );
   }

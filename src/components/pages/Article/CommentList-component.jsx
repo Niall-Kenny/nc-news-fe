@@ -9,11 +9,12 @@ class CommentList extends Component {
   };
   render() {
     const { comments } = this.state;
-    const { article_id } = this.props;
+    const { article_id, username } = this.props;
+
     return (
       <div className="comment-list">
         {comments === null ? (
-          <button onClick={this.changeButton}>
+          <button onClick={this.changeCommentButton}>
             comments: {this.props.comment_count}
           </button>
         ) : (
@@ -21,10 +22,19 @@ class CommentList extends Component {
             <AddComment
               article_id={article_id}
               displayNewComment={this.displayNewComment}
+              username={username}
             />
             <ul>
               {comments.map(({ comment_id, ...otherCommentProps }) => {
-                return <CommentCard key={comment_id} {...otherCommentProps} />;
+                return (
+                  <CommentCard
+                    handleDelete={this.handleDelete}
+                    key={comment_id}
+                    username={username}
+                    comment_id={comment_id}
+                    {...otherCommentProps}
+                  />
+                );
               })}
             </ul>
           </>
@@ -33,7 +43,7 @@ class CommentList extends Component {
     );
   }
 
-  changeButton = () => {
+  changeCommentButton = () => {
     api
       .fetchComments(this.props.article_id)
       .then(comments => this.setState({ comments }));
@@ -42,6 +52,15 @@ class CommentList extends Component {
   displayNewComment = newComment => {
     this.setState(({ comments }) => {
       return { comments: [newComment, ...comments] };
+    });
+  };
+
+  handleDelete = comment_id => {
+    api.deleteComment(comment_id);
+    this.setState(({ comments }) => {
+      return {
+        comments: comments.filter(comment => comment.comment_id !== comment_id)
+      };
     });
   };
 }

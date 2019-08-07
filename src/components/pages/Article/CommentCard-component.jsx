@@ -1,6 +1,18 @@
 import React from "react";
 
-const CommentCard = ({ author, created_at, body, votes }) => {
+const CommentCard = ({
+  comment_id,
+  handleDelete,
+  author,
+  created_at,
+  body,
+  votes,
+  username
+}) => {
+  let style;
+  if (username !== author) {
+    style = { display: "none" };
+  }
   return (
     <div className="comment-card">
       <li>
@@ -8,8 +20,18 @@ const CommentCard = ({ author, created_at, body, votes }) => {
         <p>{created_at}</p>
         <p>{body}</p>
         <p>Votes: {votes}</p>
-        <button>edit comment</button>
-        <button>delete comment</button>
+        <button className="edit-comment" style={style}>
+          edit comment
+        </button>
+        <button
+          className="delete-comment"
+          style={style}
+          onClick={() => handleDelete(comment_id)}
+        >
+          delete comment
+        </button>
+        <button>vote +1</button>
+        <button>vote -1</button>
       </li>
     </div>
   );

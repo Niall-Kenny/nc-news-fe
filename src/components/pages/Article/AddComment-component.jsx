@@ -3,8 +3,7 @@ import * as api from "../../../api";
 
 class AddComment extends React.Component {
   state = {
-    inputValue: "",
-    username: "tickle122"
+    inputValue: ""
   };
   render() {
     const { inputValue } = this.state;
@@ -24,8 +23,8 @@ class AddComment extends React.Component {
     );
   }
   handleSubmit = e => {
-    const { article_id, displayNewComment } = this.props;
-    const { username, inputValue } = this.state;
+    const { article_id, displayNewComment, username } = this.props;
+    const { inputValue } = this.state;
     e.preventDefault();
     api
       .postComment(article_id, username, inputValue)
