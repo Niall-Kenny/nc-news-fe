@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../../api";
-import CommentList from "./CommentList-component";
-import Voter from "./Voter-component";
+import CommentList from "../../Article-components/comments/CommentList-component";
+import Voter from "../../voting/Voter-component";
 
 class ArticlePage extends Component {
   state = {
@@ -20,7 +20,11 @@ class ArticlePage extends Component {
         <p>{article.body}</p>
         <p>Published By: {article.author}</p>
 
-        <Voter votes={article.votes} article_id={article.article_id} />
+        <Voter
+          votes={article.votes}
+          endpoint="articles"
+          article_id={article.article_id}
+        />
         <CommentList {...article} username={this.props.username} />
       </div>
     );

@@ -1,4 +1,5 @@
 import React from "react";
+import Voter from "../../voting/Voter-component";
 
 const CommentCard = ({
   comment_id,
@@ -19,10 +20,8 @@ const CommentCard = ({
         <h5>author: {author}</h5>
         <p>{created_at}</p>
         <p>{body}</p>
-        <p>Votes: {votes}</p>
-        <button className="edit-comment" style={style}>
-          edit comment
-        </button>
+        <Voter comment_id={comment_id} endpoint="comments" votes={votes} />
+
         <button
           className="delete-comment"
           style={style}
@@ -30,8 +29,6 @@ const CommentCard = ({
         >
           delete comment
         </button>
-        <button>vote +1</button>
-        <button>vote -1</button>
       </li>
     </div>
   );

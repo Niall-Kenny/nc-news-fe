@@ -43,9 +43,9 @@ export const deleteComment = comment_id => {
   });
 };
 
-export const incrementVoteCount = (article_id, inc_votes) => {
+export const incrementVoteCount = (endpoint, id, inc_votes) => {
   return request
-    .patch(`/articles/${article_id}`, {
+    .patch(`/${endpoint}/${id}`, {
       inc_votes
     })
     .then(res => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as api from "../../../api";
+import * as api from "../../api";
 
 class Voter extends Component {
   state = {
@@ -31,11 +31,14 @@ class Voter extends Component {
   }
 
   handleClick = num => {
-    const { article_id } = this.props;
+    const { article_id, comment_id, endpoint } = this.props;
+
     this.setState(({ voteChange }) => {
       return { voteChange: (voteChange += num) };
     });
-    api.incrementVoteCount(article_id, num);
+    api
+      .incrementVoteCount(endpoint, article_id || comment_id, num)
+      .catch(err => console.dir(err));
   };
 }
 
