@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../../api";
 import CommentList from "./CommentList-component";
+import Voter from "./Voter-component";
 
 class ArticlePage extends Component {
   state = {
@@ -19,9 +20,7 @@ class ArticlePage extends Component {
         <p>{article.body}</p>
         <p>Published By: {article.author}</p>
 
-        <button>UP vote</button>
-        <button>DOWN vote</button>
-        <span>Votes: {article.votes}</span>
+        <Voter votes={article.votes} article_id={article.article_id} />
         <CommentList {...article} username={this.props.username} />
       </div>
     );
@@ -32,8 +31,6 @@ class ArticlePage extends Component {
       .fetchArticle(id)
       .then(article => this.setState({ article, isLoading: false }));
   }
-
-  displayComments = () => {};
 }
 
 export default ArticlePage;
