@@ -5,7 +5,7 @@ body {
   margin: 0;
 }
 
-/* a {
+a {
   padding: 10px;
   color: #000000;
   text-decoration: none;
@@ -14,4 +14,4 @@ body {
 
 .a:hover {
   color: grey;
-} */
+}

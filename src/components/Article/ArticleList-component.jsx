@@ -3,7 +3,7 @@ import ArticlePreview from "./ArticlePreview-component";
 
 import "./articleList.styles.scss";
 
-const FeedList = ({ articles }) => {
+const ArticleList = ({ articles }) => {
   return (
     <div className="feed-list">
       <div className="feed-preview">
@@ -21,4 +21,4 @@ const FeedList = ({ articles }) => {
   );
 };
 
-export default FeedList;
+export default ArticleList;

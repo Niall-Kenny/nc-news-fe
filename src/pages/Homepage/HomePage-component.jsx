@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "./hompage.styles.scss";
 import ContentPreview from "../../components/content-preview/ContentPreview-component";
 
-class HomePage extends Component {
+class HomePage extends React.Component {
   state = {
     topics: [
       {

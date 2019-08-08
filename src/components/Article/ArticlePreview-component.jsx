@@ -16,7 +16,6 @@ const ArticlePreview = ({
   const style = {
     backgroundImage: `url(${imageUrl})`
   };
-
   return (
     <article className="preview-item">
       <div className="preview-card-header" style={style} />
@@ -29,7 +28,9 @@ const ArticlePreview = ({
         <p>Topic: {topic}</p>
       </div>
       <div className="preview-card-footer">
-        <span className="author">By: {author}</span>
+        <Link to={`/user/${author}`}>
+          <span className="author">By: {author}</span>
+        </Link>
         <span className="votes">Votes: {votes}</span>
       </div>
     </article>

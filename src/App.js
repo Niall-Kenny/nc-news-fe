@@ -3,10 +3,11 @@ import { Router } from "@reach/router";
 
 import "./App.css";
 import Header from "./components/Header/Header.jsx";
-import HomePage from "./pages/hompage/HomePage-component";
+import HomePage from "./pages/Homepage/HomePage-component";
 import FeedPage from "./pages/Feed/FeedPage";
 import ArticlePage from "./pages/Article/ArticlePage-component";
-import UserPage from "./pages/User/userPage-component";
+import UserPage from "./pages/User/UserPage-component";
+import ErrorMessage from "./pages/Error/Error-component";
 
 class App extends React.Component {
   state = {
@@ -23,7 +24,8 @@ class App extends React.Component {
           <HomePage path="/" />
           <FeedPage path="/feed" />
           <ArticlePage path="/feed/:id" loggedIN={loggedIN} />
-          <UserPage path="/profile" loggedIN={loggedIN} />
+          <UserPage path="/user/:id" loggedIN={loggedIN} />
+          <ErrorMessage path="/*" />
         </Router>
       </div>
     );
