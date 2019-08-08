@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./hompage.styles.scss";
-import ContentPreview from "../../content-preview/ContentPreview-component";
+import ContentPreview from "../../components/content-preview/ContentPreview-component";
 
 class HomePage extends Component {
   state = {

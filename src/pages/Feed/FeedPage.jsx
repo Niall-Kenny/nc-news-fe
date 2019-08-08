@@ -1,7 +1,7 @@
 import React from "react";
-import FeedList from "./FeedList-component";
-import * as api from "../../../api";
-import SortBy from "../../SortBy-component";
+import ArticleList from "../../components/Article/ArticleList-component";
+import * as api from "../../api";
+import SortBy from "../../components/SortBy-component";
 
 class FeedPage extends React.Component {
   state = {
@@ -35,7 +35,7 @@ class FeedPage extends React.Component {
     return (
       <div className="feed-page">
         <SortBy updateSortOrder={this.updateSortOrder} />
-        <FeedList articles={articles} />
+        <ArticleList articles={articles} />
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import "./Header.styles.scss";
 
-const Header = () => {
+const Header = ({ loggedIN }) => {
   return (
     <div className="header">
       <nav className="nav-bar">
@@ -14,6 +14,9 @@ const Header = () => {
         </Link>
         <Link to="/" className="nc-news-btn">
           NC-News
+        </Link>
+        <Link to="/profile" className="logged-in">
+          {loggedIN}
         </Link>
       </nav>
     </div>

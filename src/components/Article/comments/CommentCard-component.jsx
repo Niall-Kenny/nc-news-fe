@@ -8,10 +8,10 @@ const CommentCard = ({
   created_at,
   body,
   votes,
-  username
+  loggedIN
 }) => {
   let style;
-  if (username !== author) {
+  if (loggedIN !== author) {
     style = { display: "none" };
   }
   return (

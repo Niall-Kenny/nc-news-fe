@@ -3,19 +3,22 @@
     padding: 12px;
 
     .nav-btn {
-        padding: 10px;
-        color: #000000;
-        text-decoration: none;
+     padding: 10px;
+     color: #000000;
+     text-decoration: none;
 
-        color: #000000;
-    }
+     color: #000000;
 
-    .nav-btn:hover {
-        color: grey;
-    }
+ }
 
-    .nc-news-btn {}
+ .nav-btn:hover {
+     color: grey;
+ }
 
+
+    .logged-in {
+    float: right;
+}
 
 
 }

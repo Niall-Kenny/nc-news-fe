@@ -9,7 +9,7 @@ class CommentList extends Component {
   };
   render() {
     const { comments } = this.state;
-    const { article_id, username } = this.props;
+    const { article_id, loggedIN } = this.props;
 
     return (
       <div className="comment-list">
@@ -22,7 +22,7 @@ class CommentList extends Component {
             <AddComment
               article_id={article_id}
               displayNewComment={this.displayNewComment}
-              username={username}
+              loggedIN={loggedIN}
             />
             <ul>
               {comments.map(({ comment_id, ...otherCommentProps }) => {
@@ -30,7 +30,7 @@ class CommentList extends Component {
                   <CommentCard
                     handleDelete={this.handleDelete}
                     key={comment_id}
-                    username={username}
+                    loggedIN={loggedIN}
                     comment_id={comment_id}
                     {...otherCommentProps}
                   />

@@ -4,11 +4,12 @@ const request = axios.create({
   baseURL: "https://ncnews-21-7-19.herokuapp.com/api"
 });
 
-export const fetchArticles = sort_by => {
+export const fetchArticles = (sort_by, author) => {
   return request
     .get("/articles", {
       params: {
-        sort_by
+        sort_by,
+        author
       }
     })
     .then(res => {
@@ -51,4 +52,10 @@ export const incrementVoteCount = (endpoint, id, inc_votes) => {
     .then(res => {
       return res;
     });
+};
+
+export const fetchUserInfo = username => {
+  return request.get(`/users/${username}`).then(res => {
+    return res.data.user;
+  });
 };

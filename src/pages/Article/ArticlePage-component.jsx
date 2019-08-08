@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import * as api from "../../../api";
-import CommentList from "../../Article-components/comments/CommentList-component";
-import Voter from "../../voting/Voter-component";
+import * as api from "../../api";
+import CommentList from "../../components/Article/comments/CommentList-component";
+import Voter from "../../components/voting/Voter-component";
 
 class ArticlePage extends Component {
   state = {
@@ -25,7 +25,7 @@ class ArticlePage extends Component {
           endpoint="articles"
           article_id={article.article_id}
         />
-        <CommentList {...article} username={this.props.username} />
+        <CommentList {...article} loggedIN={this.props.loggedIN} />
       </div>
     );
   }

@@ -23,11 +23,11 @@ class AddComment extends React.Component {
     );
   }
   handleSubmit = e => {
-    const { article_id, displayNewComment, username } = this.props;
+    const { article_id, displayNewComment, loggedIN } = this.props;
     const { inputValue } = this.state;
     e.preventDefault();
     api
-      .postComment(article_id, username, inputValue)
+      .postComment(article_id, loggedIN, inputValue)
       .then(newComment => displayNewComment(newComment));
     this.setState({ inputValue: "" });
   };

@@ -3,23 +3,27 @@ import { Router } from "@reach/router";
 
 import "./App.css";
 import Header from "./components/Header/Header.jsx";
-import HomePage from "./components/pages/hompage/HomePage-component";
-import FeedPage from "./components/pages/Feed/FeedPage";
-import ArticlePage from "./components/pages/Article/ArticlePage-component";
+import HomePage from "./pages/hompage/HomePage-component";
+import FeedPage from "./pages/Feed/FeedPage";
+import ArticlePage from "./pages/Article/ArticlePage-component";
+import UserPage from "./pages/User/userPage-component";
 
 class App extends React.Component {
   state = {
-    username: "tickle122"
+    loggedIN: "tickle122"
   };
 
   render() {
+    const { loggedIN } = this.state;
+
     return (
       <div className="App">
-        <Header />
+        <Header loggedIN={loggedIN} />
         <Router>
           <HomePage path="/" />
           <FeedPage path="/feed" />
-          <ArticlePage username={this.state.username} path="/feed/:id" />
+          <ArticlePage path="/feed/:id" loggedIN={loggedIN} />
+          <UserPage path="/profile" loggedIN={loggedIN} />
         </Router>
       </div>
     );
