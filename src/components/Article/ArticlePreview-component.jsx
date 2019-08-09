@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-
+import transformTitleLength from "../../utils/util";
 import "./Article-preview.styles.scss";
 
 const ArticlePreview = ({
@@ -16,6 +16,9 @@ const ArticlePreview = ({
   const style = {
     backgroundImage: `url(${imageUrl})`
   };
+  console.log(title);
+  const maxCharInTitle = 64;
+  const newTitle = transformTitleLength(title, maxCharInTitle);
   return (
     <article className="preview-item">
       <div className="preview-card-header" style={style} />
@@ -23,7 +26,7 @@ const ArticlePreview = ({
       <div className="preview-card-body">
         <p className="preview-date">{created_at}</p>
         <Link to={`/feed/${article_id}`} className="preview-title-link">
-          <h2>{title}</h2>
+          <h2>{newTitle}</h2>
         </Link>
         <p>Topic: {topic}</p>
       </div>

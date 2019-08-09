@@ -1,6 +1,6 @@
 .preview-item {
     width: 30%;
-    height: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,6 +11,8 @@
 
 
     h2 {
+        font-size: 1rem;
+
         &:hover {
             cursor: pointer;
         }
@@ -18,7 +20,7 @@
 
 
     .preview-card-header {
-        height: 300px;
+        height: 200px;
         width: 100%;
 
         background-size: cover;
@@ -60,12 +62,5 @@
             width: 20%
         }
     }
-
-    .preview-title-link {
-        color: #202121;
-        text-decoration: none;
-    }
-
-
 
 }
