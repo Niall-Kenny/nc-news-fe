@@ -15,6 +15,7 @@ class FeedPage extends React.Component {
     return (
       <div className="feed-page">
         <SortBy updateSortOrder={this.updateSortOrder} />
+
         <ArticleList articles={articles} />
       </div>
     );

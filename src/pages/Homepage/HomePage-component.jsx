@@ -1,76 +1,19 @@
 import React from "react";
 import "./hompage.styles.scss";
 import ContentPreview from "../../components/content-preview/ContentPreview-component";
+import * as api from "../../api";
 
 class HomePage extends React.Component {
   state = {
-    topics: [
-      {
-        slug: "coding",
-        description: "Code is love, code is life"
-      },
-      {
-        slug: "football",
-        description: "FOOTIE!"
-      },
-      {
-        slug: "cooking",
-        description: "Hey good looking, what you got cooking?"
-      }
-    ],
-    articles: {
-      cooking: [
-        {
-          author: "weegembump",
-          title: "Seafood substitutions are increasing",
-          votes: 0,
-          comment_count: "6"
-        },
-        {
-          author: "happyamy2016",
-          title: "High Altitude Cooking",
-          votes: 0,
-          comment_count: "5"
-        }
-      ],
-
-      football: [
-        {
-          author: "weegembump",
-          title:
-            "What does Jose Mourinho's handwriting say about his personality?",
-          votes: 0,
-          comment_count: "6"
-        },
-        {
-          author: "grumpy19",
-          title:
-            "The People Tracking Every Touch, Pass And Tackle in the World Cup",
-          votes: 0,
-          comment_count: "8"
-        }
-      ],
-      coding: [
-        {
-          author: "grumpy19",
-          title:
-            "JavaScript’s Apply, Call, and Bind Methods are Essential for JavaScript Professionals",
-          votes: 0,
-          comment_count: "11"
-        },
-        {
-          author: "jessjelly",
-          title: "Making sense of Redux",
-          votes: 0,
-          comment_count: "9"
-        }
-      ]
-    }
+    topics: null,
+    articles: null,
+    isLoading: true
   };
 
   render() {
-    const { articles, topics } = this.state;
+    const { articles, topics, isLoading } = this.state;
 
+    if (isLoading) return <p>Loading...</p>;
     return (
       <div className="home-page">
         <ContentPreview
@@ -78,17 +21,26 @@ class HomePage extends React.Component {
           description={topics[0].description}
           articles={articles.coding}
         />
+        <ContentPreview
+          topic={topics[1].slug}
+          description={topics[1].description}
+          articles={articles.football}
+        />
+        <ContentPreview
+          topic={topics[2].slug}
+          description={topics[2].description}
+          articles={articles.cooking}
+        />
       </div>
     );
   }
 
-  // makeCookingCards = () => {
-  //   const {articles, topics} = this.state
-  //   articles.cooking.map(article => {
-  //     return <ArticlePreview key={article.article_id} {...article} />;
-  //   });
-  //   const cookInfo = topics[0]
-  // };
+  componentDidMount() {
+    api.fetchPreviewContent().then(previewContent => {
+      const { articles, topics } = previewContent;
+      this.setState({ topics, articles, isLoading: false });
+    });
+  }
 }
 
 export default HomePage;

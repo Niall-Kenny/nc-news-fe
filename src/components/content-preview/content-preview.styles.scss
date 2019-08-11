@@ -1,9 +1,6 @@
-.content-preview {
-    width: 100%;
-
-
-    .content-topic {
-        float: left;
-        width: 100%;
-    }
+.content-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1rem;
 }

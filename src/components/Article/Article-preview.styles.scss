@@ -1,22 +1,17 @@
 .preview-item {
-    width: 30%;
 
+    border-radius: 4px;
+    padding: .5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    position: relative;
     background-color: #fcfcfc;
-    margin-left: 5px;
-    margin-top: 10px;
-    color: #202121;
-
-
-    h2 {
-        font-size: 1rem;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
+    // flex-direction: column;
+    // align-items: center;
+    // width: 30%;
+    // margin-left: 5px;
+    // margin-top: 10px;
+    //color: #202121;
 
 
     .preview-card-header {
@@ -31,12 +26,24 @@
 
 
     .preview-card-body {
-        width: 100%;
+        font-size: .75rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
 
         .preview-date {
             font-size: 11px;
             font-weight: 600;
             color: grey;
+        }
+
+        h2 {
+            font-size: 1rem;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
 

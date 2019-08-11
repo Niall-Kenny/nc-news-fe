@@ -5,8 +5,8 @@ import "./articleList.styles.scss";
 
 const ArticleList = ({ articles }) => {
   return (
-    <div className="feed-list">
-      <div className="feed-preview">
+    <div>
+      <div className="feed-list">
         {articles.map(props => {
           return (
             <ArticlePreview

@@ -1,18 +1,6 @@
-// .feed-list {
-    //     width: 100%;
-    //     height: 50vh;
-    //     margin: 0px 30px;
-
-    //     .feed-preview {
-    //         height: 100%;
-    //         display: flex;
-    //         flex-wrap: wrap;
-    //         flex-direction: row;
-
-    //     }
-
-    //     .article-card-body {
-    //         height: 200px;
-    //     }
-
-    // }
+ .feed-list {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     grid-auto-rows: minmax(200px, auto);
+     grid-gap: 1rem;
+ }

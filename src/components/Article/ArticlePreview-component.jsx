@@ -16,9 +16,10 @@ const ArticlePreview = ({
   const style = {
     backgroundImage: `url(${imageUrl})`
   };
-  console.log(title);
+
   const maxCharInTitle = 64;
   const newTitle = transformTitleLength(title, maxCharInTitle);
+
   return (
     <article className="preview-item">
       <div className="preview-card-header" style={style} />

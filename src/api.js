@@ -59,3 +59,9 @@ export const fetchUserInfo = username => {
     return res.data.user;
   });
 };
+
+export const fetchPreviewContent = () => {
+  return request.get(`/topics/preview`).then(res => {
+    return res.data.topicsPreview;
+  });
+};
