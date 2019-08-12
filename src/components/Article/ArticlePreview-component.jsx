@@ -17,7 +17,7 @@ const ArticlePreview = ({
   const style = {
     backgroundImage: `url(${imageUrl})`
   };
-
+  const datePosted = new Date(created_at).toLocaleDateString();
   const maxCharInTitle = 64;
   const newTitle = transformTitleLength(title, maxCharInTitle);
 
@@ -26,7 +26,7 @@ const ArticlePreview = ({
       <div className="preview-card-header" style={style} />
 
       <div className="preview-card-body">
-        <p className="preview-date">{created_at}</p>
+        <p className="preview-date">{datePosted}</p>
         <Link to={`/feed/${article_id}`} className="preview-title-link">
           <h2>{newTitle}</h2>
         </Link>
