@@ -3,6 +3,8 @@ import { Link } from "@reach/router";
 import transformTitleLength from "../../utils/util";
 import "./Article-preview.styles.scss";
 
+import image from "../../images/images";
+
 const ArticlePreview = ({
   author,
   title,
@@ -11,8 +13,7 @@ const ArticlePreview = ({
   topic,
   article_id
 }) => {
-  const imageUrl =
-    "https://images.unsplash.com/photo-1554341662-f0f91d1eb2d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80";
+  const imageUrl = image[Math.floor(Math.random() * 15) + 1];
   const style = {
     backgroundImage: `url(${imageUrl})`
   };
@@ -29,7 +30,9 @@ const ArticlePreview = ({
         <Link to={`/feed/${article_id}`} className="preview-title-link">
           <h2>{newTitle}</h2>
         </Link>
-        <p>Topic: {topic}</p>
+        <Link to={`/topics/${topic}`}>
+          <p>Topic: {topic}</p>
+        </Link>
       </div>
       <div className="preview-card-footer">
         <Link to={`/user/${author}`}>

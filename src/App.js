@@ -8,6 +8,7 @@ import FeedPage from "./pages/Feed/FeedPage";
 import ArticlePage from "./pages/Article/ArticlePage-component";
 import UserPage from "./pages/User/UserPage-component";
 import ErrorMessage from "./pages/Error/Error-component";
+import TopicsPage from "./pages/topics/TopicsPage-component";
 
 class App extends React.Component {
   state = {
@@ -22,6 +23,8 @@ class App extends React.Component {
         <Header loggedIN={loggedIN} />
         <Router>
           <HomePage path="/" />
+          <TopicsPage path="/topics/*" />
+          <TopicsPage path="/topics/:topic" />
           <FeedPage path="/feed" />
           <ArticlePage path="/feed/:id" loggedIN={loggedIN} />
           <UserPage path="/user/:id" loggedIN={loggedIN} />
