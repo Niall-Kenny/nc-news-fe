@@ -3,7 +3,6 @@
     padding: 12px;
 
     .nav-bar {
-
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -12,6 +11,10 @@
 
     .option {
         margin: 5px;
+    }
+
+    .nc-news-btn {
+        font-weight: 400;
     }
 
 }
