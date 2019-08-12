@@ -3,6 +3,10 @@ import { Link } from "@reach/router";
 import transformTitleLength from "../../utils/util";
 import "./Article-preview.styles.scss";
 
+import { Icon, InlineIcon } from "@iconify/react";
+import commentsIcon from "@iconify/icons-fa-solid/comments";
+import clappingHands from "@iconify/icons-emojione-monotone/clapping-hands";
+
 import image from "../../images/images";
 
 const ArticlePreview = ({
@@ -11,7 +15,8 @@ const ArticlePreview = ({
   created_at,
   votes,
   topic,
-  article_id
+  article_id,
+  comment_count
 }) => {
   const imageUrl = image[Math.floor(Math.random() * 15) + 1];
   const style = {
@@ -26,19 +31,28 @@ const ArticlePreview = ({
       <div className="preview-card-header" style={style} />
 
       <div className="preview-card-body">
-        <p className="preview-date">{datePosted}</p>
         <Link to={`/feed/${article_id}`} className="preview-title-link">
           <h2>{newTitle}</h2>
         </Link>
-        <Link to={`/topics/${topic}`}>
-          <p>Topic: {topic}</p>
-        </Link>
+        <div className="topic-date">
+          <Link to={`/topics/${topic}`}>
+            <p>Topic: {topic}</p>
+          </Link>
+          <p className="preview-date">{datePosted}</p>
+        </div>
       </div>
       <div className="preview-card-footer">
         <Link to={`/user/${author}`}>
-          <span className="author">By: {author}</span>
+          <span className="author">
+            BY <b>{author.toUpperCase()}</b>
+          </span>
         </Link>
-        <span className="votes">Votes: {votes}</span>
+        <span>
+          <Icon className="icon" icon={commentsIcon} />
+          <span className="number">{comment_count}</span>
+          <Icon className="icon" icon={clappingHands} />
+          <span className="number">{votes}</span>
+        </span>
       </div>
     </article>
   );
