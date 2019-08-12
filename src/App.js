@@ -23,7 +23,6 @@ class App extends React.Component {
         <Header loggedIN={loggedIN} />
         <Router>
           <HomePage path="/" />
-          <TopicsPage path="/topics/*" />
           <TopicsPage path="/topics/:topic" />
           <FeedPage path="/feed" />
           <ArticlePage path="/feed/:id" loggedIN={loggedIN} />

@@ -17,7 +17,6 @@ class UserPage extends Component {
     const { id } = this.props;
 
     if (error) {
-      console.log("hey there!");
       return <ErrorMessage message={`Opps! ${id} doesn't exist :(`} />;
     }
 

@@ -34,7 +34,7 @@ class Voter extends Component {
     const { article_id, comment_id, endpoint } = this.props;
 
     this.setState(({ voteChange }) => {
-      return { voteChange: (voteChange += num) };
+      return { voteChange: voteChange + num };
     });
     api
       .incrementVoteCount(endpoint, article_id || comment_id, num)
