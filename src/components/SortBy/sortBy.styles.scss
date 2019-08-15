@@ -1,0 +1,34 @@
+.sort-by {
+    text-align: center;
+    border-bottom: 2px solid #E6EAEA;
+
+    .sort-by-btn {
+        text-decoration: none;
+        padding: none;
+        background-color: #F4F7F6;
+        border: none;
+        font-family: 'Montserrat', sans-serif;
+        border-left: 2px solid #E6EAEA;
+        border-right: 2px solid #E6EAEA;
+        padding: 12px;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .sort-by-btn-m {
+        text-decoration: none;
+        padding: none;
+        background-color: #F4F7F6;
+        border: none;
+        font-family: 'Montserrat', sans-serif;
+        padding: 12px;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

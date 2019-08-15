@@ -1,7 +1,7 @@
 import React from "react";
 import ArticleList from "../../components/Article/ArticleList-component";
 import * as api from "../../api";
-import SortBy from "../../components/SortBy-component";
+import SortBy from "../../components/SortBy/SortBy-component";
 
 class FeedPage extends React.Component {
   state = {
