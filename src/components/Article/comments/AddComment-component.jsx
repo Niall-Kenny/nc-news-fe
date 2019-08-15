@@ -25,11 +25,14 @@ class AddComment extends React.Component {
   handleSubmit = e => {
     const { article_id, displayNewComment, loggedIN } = this.props;
     const { inputValue } = this.state;
+    const regex = /\S/;
     e.preventDefault();
-    api
-      .postComment(article_id, loggedIN, inputValue)
-      .then(newComment => displayNewComment(newComment));
-    this.setState({ inputValue: "" });
+    if (regex.test(inputValue)) {
+      api
+        .postComment(article_id, loggedIN, inputValue)
+        .then(newComment => displayNewComment(newComment));
+      this.setState({ inputValue: "" });
+    }
   };
 
   handleChange = e => {

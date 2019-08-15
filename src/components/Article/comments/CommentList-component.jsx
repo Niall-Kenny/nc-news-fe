@@ -14,7 +14,7 @@ class CommentList extends Component {
     return (
       <div className="comment-list">
         {comments === null ? (
-          <button onClick={this.changeCommentButton}>
+          <button onClick={this.displayComments}>
             comments: {this.props.comment_count}
           </button>
         ) : (
@@ -43,7 +43,7 @@ class CommentList extends Component {
     );
   }
 
-  changeCommentButton = () => {
+  displayComments = () => {
     api
       .fetchComments(this.props.article_id)
       .then(comments => this.setState({ comments }));
