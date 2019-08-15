@@ -11,10 +11,20 @@
 
     .option {
         margin: 5px;
+
+        &:hover {
+            cursor: pointer;
+            color: #96999A;
+        }
     }
 
     .nc-news-btn {
         font-weight: 400;
+
+        &:hover {
+            cursor: pointer;
+            color: #96999A;
+        }
     }
 
 }
