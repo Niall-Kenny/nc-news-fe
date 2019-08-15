@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 import transformTitleLength from "../../utils/util";
 import "./Article-preview.styles.scss";
 
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import commentsIcon from "@iconify/icons-fa-solid/comments";
 import clappingHands from "@iconify/icons-emojione-monotone/clapping-hands";
 
