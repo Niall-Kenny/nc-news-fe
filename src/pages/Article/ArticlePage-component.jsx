@@ -3,6 +3,7 @@ import * as api from "../../api";
 import CommentList from "../../components/Article/comments/CommentList-component";
 import Voter from "../../components/voting/Voter-component";
 import ErrorMessage from "../Error/Error-component";
+import "./article.styles.scss";
 
 class ArticlePage extends Component {
   state = {

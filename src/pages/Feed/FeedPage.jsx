@@ -2,7 +2,7 @@ import React from "react";
 import ArticleList from "../../components/Article/ArticleList-component";
 import * as api from "../../api";
 import SortBy from "../../components/SortBy/SortBy-component";
-
+import "./feedPage.styles.scss";
 class FeedPage extends React.Component {
   state = {
     articles: null,

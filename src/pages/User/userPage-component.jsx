@@ -3,29 +3,31 @@ import * as api from "../../api";
 import axios from "axios";
 import ArticleList from "../../components/Article/ArticleList-component";
 import ErrorMessage from "../Error/Error-component";
+import "./userPage.styles.scss";
 
 class UserPage extends Component {
   state = {
     userInfo: null,
     articles: null,
     message: "",
-    error: false
+    error: false,
+    isLoading: true
   };
 
   render() {
-    const { userInfo, articles, message, error } = this.state;
+    const { isLoading, articles, message, error } = this.state;
     const { id } = this.props;
 
     if (error) {
       return <ErrorMessage message={`Opps! ${id} doesn't exist :(`} />;
     }
 
-    if (userInfo === null) {
+    if (isLoading) {
       return <p>loading...</p>;
     }
 
     return (
-      <div>
+      <div className="user-page">
         <h2>{message}</h2>
         <ul>
           <ArticleList articles={articles} />
@@ -46,13 +48,15 @@ class UserPage extends Component {
             this.setState({
               message: `Hi ${loggedIN}, here's a list of your articles:`,
               userInfo,
-              articles
+              articles,
+              isLoading: false
             });
           } else {
             this.setState({
               message: `${userInfo.username}'s articles:`,
               userInfo,
-              articles
+              articles,
+              isLoading: false
             });
           }
         })
